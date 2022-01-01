@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.8"] #, "3.9", "3.10"]
 
     steps:
     - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         python -m pip install git+https://github.com/gboehl/grgrlib #Own
         python -m pip install git+https://github.com/gboehl/econsieve #Own
-        python setup.py #Own
+        python -m setup.py #Own
     - name: Test with pytest
       run: |
         pytest
