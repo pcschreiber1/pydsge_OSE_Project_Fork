@@ -38,7 +38,9 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install -e
+        python -m pip install git+https://github.com/gboehl/grgrlib #Own
+        python -m pip install git+https://github.com/gboehl/econsieve #Own
+        python setup.py #Own
     - name: Test with pytest
       run: |
         pytest
