@@ -40,6 +40,7 @@ jobs:
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         # python -m pip install git+https://github.com/gboehl/grgrlib #Own
         # python -m pip install git+https://github.com/gboehl/econsieve #Own
+        python -m pip install numpy==1.20
         python -m setup.py install #Own
     - name: Test with pytest
       run: |
