@@ -37,11 +37,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install pytest
-        # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        # python -m pip install git+https://github.com/gboehl/grgrlib #Own
-        # python -m pip install git+https://github.com/gboehl/econsieve #Own
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install git+https://github.com/gboehl/grgrlib
+        python -m pip install git+https://github.com/gboehl/econsieve 
         python -m pip install numpy==1.20
-        python setup.py install #Own
+        python setup.py install
     - name: Test with pytest
       run: |
         pytest
