@@ -167,7 +167,7 @@ def test_content_of_outputs(new_output, stable_output, diff):
 
 
 @pytest.mark.special_test()
-def missing_outputs(new_output, stable_output):
+def test_missing_outputs(new_output, stable_output):
     """Check that objects are present in both collections.
 
     Certain objects vanished in transitioning to CI, for details
