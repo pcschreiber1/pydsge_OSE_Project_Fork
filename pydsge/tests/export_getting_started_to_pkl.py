@@ -3,6 +3,7 @@ import nbformat
 import pickle
 import numpy as np
 from nbconvert import PythonExporter
+from pathlib import Path  # for windows-Unix compatibility
 
 
 def nbconvert_python(path):
@@ -162,12 +163,12 @@ def notebook_exec_result_flattened(path):
 
 def main():
     """Excute jupyter notebook and save global variables."""
-    notebook_path = "docs\\getting_started.ipynb"
+    notebook_path = Path("docs/getting_started.ipynb")
 
     bk = notebook_exec_result_flattened(notebook_path)
 
     # to save session
-    save_path = "pydsge/tests/resources/getting_started_stable.npz"
+    save_path = Path("pydsge/tests/resources/getting_started_stable.npz")
     with open(save_path, "wb") as f:
         np.savez_compressed(f, **bk)
 
