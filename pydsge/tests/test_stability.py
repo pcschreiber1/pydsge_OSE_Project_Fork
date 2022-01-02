@@ -3,8 +3,8 @@ import pytest
 import numpy as np  # for dealing with numpy pickle
 import logging  # for custom error messages
 
-from tests.export_getting_started_to_pkl import notebook_exec_result_flattened
-from tests.export_getting_started_to_pkl import to_ndarray
+from pydsge.tests.export_getting_started_to_pkl import notebook_exec_result_flattened
+from pydsge.tests.export_getting_started_to_pkl import to_ndarray
 
 
 @pytest.fixture(scope="module")
