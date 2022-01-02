@@ -43,6 +43,6 @@ jobs:
         python -m pip install numpy==1.20
         python setup.py install
     - name: Test with pytest
-      shell: pwd
+      shell: bash pwd
       run: |
         pytest
