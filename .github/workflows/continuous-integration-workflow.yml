@@ -42,6 +42,9 @@ jobs:
         python -m pip install git+https://github.com/gboehl/econsieve 
         python -m pip install numpy==1.20
         python setup.py install
+    - name: Update stable pickle
+      run: |
+        python pydsge/tests/export_getting_started_to_pkl.py
     - name: Test with pytest
       run: |
         pytest
