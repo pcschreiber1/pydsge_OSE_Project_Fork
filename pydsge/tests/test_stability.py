@@ -4,8 +4,8 @@ import numpy as np  # for dealing with numpy pickle
 import logging  # for custom error messages
 from pathlib import Path  # for windows-Unix compatibility
 
-from pydsge.tests.export_getting_started_to_pkl import notebook_exec_result_flattened
-from pydsge.tests.export_getting_started_to_pkl import to_ndarray
+from export_getting_started_to_pkl import notebook_exec_result_flattened
+from export_getting_started_to_pkl import to_ndarray
 
 
 @pytest.fixture(scope="module")
