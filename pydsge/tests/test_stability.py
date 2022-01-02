@@ -2,13 +2,14 @@
 import pytest
 import numpy as np  # for dealing with numpy pickle
 import logging  # for custom error messages
+from pathlib import Path  # for windows-Unix compatibility
 
 from pydsge.tests.export_getting_started_to_pkl import notebook_exec_result_flattened
 from pydsge.tests.export_getting_started_to_pkl import to_ndarray
 
 
 @pytest.fixture(scope="module")
-def new_output(path="docs\\getting_started.ipynb"):
+def new_output(path="docs/getting_started.ipynb"):
     """Create dictionary of variables from current state of getting_started.
 
     Args:
@@ -18,7 +19,7 @@ def new_output(path="docs\\getting_started.ipynb"):
         bk_new (dict): A dictionary of the objects and values of the current state
          of getting_started. The object names are the keys of the dictionary.
     """
-    bk_new = notebook_exec_result_flattened(path)
+    bk_new = notebook_exec_result_flattened(Path(path))
     bk_new_array = to_ndarray(bk_new)
 
     return bk_new_array
@@ -33,7 +34,7 @@ def stable_output():
         stable getting_started. The object names are the keys of the dictionary.
     """
     # Unpickle stable output
-    with open("pydsge/tests/resources/getting_started_stable.npz", "rb") as f:
+    with open(Path("pydsge/tests/resources/getting_started_stable.npz"), "rb") as f:
         npzfile = np.load(f, allow_pickle=False)
         bk_restore = dict(npzfile)
 
