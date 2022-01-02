@@ -152,7 +152,7 @@ def test_content_of_outputs(new_output, stable_output, diff):
             for counter, _ in enumerate(new_output[key]):
                 assert array_equal(
                     new_output[key][counter], stable_output[key][counter]
-                )
+                ), f"Error with {key}"
         elif type(new_output[key]).__name__ in [
             "list",
             "dict",
@@ -161,6 +161,30 @@ def test_content_of_outputs(new_output, stable_output, diff):
         ]:  # Checking whether the object is nested
             stable = get_flat(stable_output[key])
             new = get_flat(new_output[key])
-            assert array_equal(new, stable)
+            assert array_equal(new, stable), f"Error with {key}"
         else:
             assert array_equal(new_output[key], stable_output[key]), f"Error with {key}"
+
+
+@pytest.mark.special_test()
+def missing_outputs(new_output, stable_output):
+    """Check that objects are present in both collections.
+
+    Certain objects vanished in transitioning to CI, for details
+    see Pull request #4.
+    Scenario:
+    * Load stable and new output as dictionaries
+    * Create list of vanished outputs
+    * For each vanished object, check whether is present in both
+     collections.
+    """
+    vanished_outputs = (
+        "mod___data___declarations_shocks",
+        "mod___data___declarations_para_func",
+        "mod___data___declarations_parameters",
+        "mod___data___declarations_constrained",
+        "mod___data___declarations_observables",
+    )
+    for var in vanished_outputs:
+        assert var in new_output.keys(), f"Error with {var}"
+        assert var in stable_output.keys(), f"Error with {var}"
