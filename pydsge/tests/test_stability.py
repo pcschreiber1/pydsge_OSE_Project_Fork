@@ -179,13 +179,7 @@ def test_missing_outputs(new_output, stable_output):
     * For each vanished object, check whether is present in both
      collections.
     """
-    vanished_outputs = (
-        "mod___data___declarations_shocks",
-        "mod___data___declarations_para_func",
-        "mod___data___declarations_parameters",
-        "mod___data___declarations_constrained",
-        "mod___data___declarations_observables",
-    )
+    vanished_outputs = ()
     for var in vanished_outputs:
         assert var in new_output.keys(), f"Error with {var}"
         assert var in stable_output.keys(), f"Error with {var}"
