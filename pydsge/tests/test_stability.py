@@ -80,7 +80,7 @@ def test_what_output_is_there(diff):
     log.error(
         r"\n\nThe test_what_output_is_there Failed."
         r" To update the Pickle, run"
-        r' "python pydsge\\tests\export_getting_started_to_pkl.py"'
+        r' "python pydsge/tests/export_getting_started_to_pkl.py"'
         r" in the terminal. \n\n"
     )
 
@@ -100,7 +100,7 @@ def array_equal(a1, a2):
     if nan_undecidable(a1) or nan_undecidable(a2):
         return np.array_equal(a1, a2, equal_nan=False)
     else:
-        return np.array_equal(a1, a2, equal_nan=True)
+        return np.allclose(a1, a2, equal_nan=True)
 
 
 # @pytest.mark.parametrize("")
@@ -116,7 +116,7 @@ def test_content_of_outputs(new_output, stable_output, diff):
     * For each shared object, check whether the content is exactly identical
     """
     # Get collection of shared variables to loop over
-    error_vars = {"__warningregistry___version"}  # Also FX?
+    error_vars = set()
     shared_vars = (stable_output.keys() | new_output.keys()) - diff - error_vars
 
     # Write function for de-nesting
@@ -140,10 +140,11 @@ def test_content_of_outputs(new_output, stable_output, diff):
     log.error(
         r"\n\nThe test_content_of_outputs Failed."
         r"To update the Pickle, run"
-        r'"python pydsge\\tests\export_getting_started_to_pkl.py"'
+        r'"python pydsge/tests/export_getting_started_to_pkl.py"'
         r"in the terminal. \n\n"
     )
 
+    # Loop over shared vars
     for key in sorted(shared_vars):
         if type(new_output[key]).__name__ == "DataFrame":
             assert new_output[key].equals(stable_output[key]), f"Error with {key}"
@@ -152,7 +153,7 @@ def test_content_of_outputs(new_output, stable_output, diff):
             for counter, _ in enumerate(new_output[key]):
                 assert array_equal(
                     new_output[key][counter], stable_output[key][counter]
-                ), f"Error with {key}"
+                ), f"Error with hd {counter}"
         elif type(new_output[key]).__name__ in [
             "list",
             "dict",
