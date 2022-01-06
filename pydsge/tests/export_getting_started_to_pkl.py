@@ -180,11 +180,6 @@ def notebook_exec_result_flattened(path):
     # Step 4: Filter for variables which is basic type or list of basic type
     bk_filted = {k: v for k, v in bk.items() if basic_type_or_list(v)}
 
-    # Step 5: Remove environmental variables
-    bk_filted = {k: v for k, v in bk_filted.items() if not contains_path(v)}
-    for key in {"__warningregistry___version"}:
-        bk_filted.pop(key)
-
     return bk_filted
 
 

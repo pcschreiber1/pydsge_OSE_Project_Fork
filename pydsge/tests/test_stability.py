@@ -183,3 +183,35 @@ def test_missing_outputs(new_output, stable_output):
     for var in vanished_outputs:
         assert var in new_output.keys(), f"Error with {var}"
         assert var in stable_output.keys(), f"Error with {var}"
+
+
+@pytest.mark.special_test()
+def test_mod_shocks_new(new_output):
+    """Check that objects are present in both collections.
+
+    Certain objects vanished in transitioning to CI, for details
+    see Pull request #4.
+    Scenario:
+    * Load stable and new output as dictionaries
+    * Create list of vanished outputs
+    * For each vanished object, check whether is present in both
+     collections.
+    """
+    vanished_outputs = "mod___data___declarations_shocks"
+    return new_output[vanished_outputs]
+
+
+@pytest.mark.special_test()
+def test_mod_shocks_stable(stable_output):
+    """Check that objects are present in both collections.
+
+    Certain objects vanished in transitioning to CI, for details
+    see Pull request #4.
+    Scenario:
+    * Load stable and new output as dictionaries
+    * Create list of vanished outputs
+    * For each vanished object, check whether is present in both
+     collections.
+    """
+    vanished_outputs = "mod___data___declarations_shocks"
+    return stable_output[vanished_outputs]
