@@ -43,10 +43,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+    - name: Commit changed pickle
+      uses: EndBug/add-and-commit@v7
       with:
-        commit-message: CI update of stable pickle
-        title: CI update of stable pickle
-        body: The updating step has been uncommented and the output can be saved now
-        branch: CI_update_stable_pickle
+        default_author: github_actions
+        message: CI update of stable pickle
+        # title: CI update of stable pickle
+        # body: The updating step has been uncommented and the output can be saved now
+        # branch: CI_update_stable_pickle
