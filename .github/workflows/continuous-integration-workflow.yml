@@ -50,6 +50,6 @@ jobs:
     - name: Commit changed pickle
       uses: EndBug/add-and-commit@v7
       with:
-        add: pydsge/test/resources # only changes to 'resources/' folder are commited
+        add: pydsge/tests/resources # only changes to 'resources/' folder are commited
         default_author: github_actions
         message: CI update of stable pickle
