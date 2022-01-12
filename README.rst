@@ -2,7 +2,10 @@
 pydsge
 ======
 
-![Build passing for Linux, MacOs, Win](https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/.github//workflows/continuous-integrating-workflow.yml/badge.svg)
+.. image:: https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/workflows/Continuous%20Integration%20Workflow/badge.svg?branch=main
+    :target: https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/actions?query=branch%3Amain
+
+----
 
 Contains the functions and classes for solving, filtering and estimating DSGE models at the ZLB (or with other occasionally binding constraints).
 
