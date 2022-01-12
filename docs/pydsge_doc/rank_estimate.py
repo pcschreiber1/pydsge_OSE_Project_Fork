@@ -1,11 +1,11 @@
 """Rank estimate."""
-
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from pydsge import DSGE
 import emcee
 
-yaml = "/home/gboehl/rsh/pydsge_doc/rank.yaml"
+yaml = "docs/pydsge/pydsge_doc/rank.yaml"
 # TODO 1: use example model provided with package. Potentially adjust if necessary
 
 mod = DSGE.read(yaml)
@@ -13,10 +13,10 @@ mod = DSGE.read(yaml)
 mod.name = "rank_test"
 mod.description = "RANK, crisis sample"
 
-mod.path = "/home/gboehl/rsh/bs0/npz"
+mod.path = Path("docs/pydsge/pydsge_doc/npz")
 
 d0 = pd.read_csv(
-    "/home/gboehl/rsh/pydsge_doc/data.csv", sep=";", index_col="date", parse_dates=True
+    Path("docs/pydsge/pydsge_doc/data.csv"), sep=";", index_col="date", parse_dates=True
 ).dropna()
 # TODO 2: use example data provided with package instead
 # (contains only three time series and no confidential information)

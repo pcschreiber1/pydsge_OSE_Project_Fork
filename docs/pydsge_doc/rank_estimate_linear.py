@@ -1,20 +1,21 @@
 """Linear estimation."""
 
+from pathlib import Path
 import pandas as pd
 from pydsge import DSGE
 import emcee
 
-yaml = "/home/gboehl/rsh/pydsge_doc/rank.yaml"
+yaml = "docs/pydsge/pydsge_doc/rank.yaml"
 
 mod = DSGE.read(yaml)
 
 mod.name = "rank_test_linear"
 mod.description = "RANK, linear estimation"
 
-mod.path = "/home/gboehl/rsh/bs0/npz"
+mod.path = Path("docs/pydsge/pydsge_doc/npz")
 
 d0 = pd.read_csv(
-    "/home/gboehl/rsh/pydsge_doc/data.csv", sep=";", index_col="date", parse_dates=True
+    Path("docs/pydsge/pydsge_doc/data.csv"), sep=";", index_col="date", parse_dates=True
 ).dropna()
 
 mod.load_data(d0, start="1983", end="2008Q4")
