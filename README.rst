@@ -2,7 +2,7 @@
 pydsge
 ======
 
-.. image:: https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/workflows/Continuous%20Integration%20Workflow/badge.svg?branch=implementing_CI
+.. image:: https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/workflows/Continuous%20Integration%20Workflow/badge.svg?branch=Implementing_CI
     :target: https://github.com/pcschreiber1/pydsge_OSE_Project_Fork/actions?query=branch%3Aimplementing_CI
 
 ----
