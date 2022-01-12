@@ -40,8 +40,8 @@ jobs:
 
     - name: Run estimations
       run: |
-        python docs\pydsge_doc\rank_estimate_linear.py
-        python docs\pydsge_doc\rank_estimate.py
+        python docs/pydsge_doc/rank_estimate_linear.py
+        python docs/pydsge_doc/rank_estimate.py
 
     # # Uncomment to unpdate stable pickle
     # - name: Update stable pickle
