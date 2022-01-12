@@ -38,6 +38,11 @@ jobs:
         python -m pip install numpy==1.20
         python setup.py install
 
+    - name: Run estimations
+      run: |
+        python docs\pydsge_doc\rank_estimate_linear.py
+        python docs\pydsge_doc\rank_estimate.py
+
     # # Uncomment to unpdate stable pickle
     # - name: Update stable pickle
     #   run: |
