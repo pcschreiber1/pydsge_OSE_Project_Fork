@@ -55,6 +55,7 @@ mod.mcmc(
     update_freq=500,
     lprob_seed="set",
     append=True,
+    debug=True,
 )
 mod.save()
 
