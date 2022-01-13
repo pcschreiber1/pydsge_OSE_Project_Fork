@@ -39,7 +39,7 @@ mod.save()
 mod.mcmc(
     p0,
     moves=moves,
-    nsteps=2000,
+    nsteps=20,
     tune=500,
     update_freq=500,
     lprob_seed="set",
