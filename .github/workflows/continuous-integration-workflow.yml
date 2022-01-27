@@ -39,11 +39,6 @@ jobs:
         python -m pip install h5py
         python setup.py install
 
-    - name: Run estimations
-      run: |
-        python docs/pydsge_doc/rank_estimate_linear.py
-        python docs/pydsge_doc/rank_estimate.py
-
     # # Uncomment to unpdate stable pickle
     # - name: Update stable pickle
     #   run: |
